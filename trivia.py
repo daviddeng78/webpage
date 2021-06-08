@@ -1,7 +1,6 @@
 import random
 import matplotlib.pyplot as plt
 
-#Organizing the questions into a dictionary
 def createDictionary(filename):
 
     openedFile = open(filename, errors='ignore')
