@@ -34,7 +34,7 @@ body {
 }
 
 .button{
-    background-color: black;
+    background-color: blue;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -63,7 +63,7 @@ body {
 }
 
 .category a:hover {
-    background-color: white;
+    background-color: lavender;
 }
 
 .categories:hover .category {
