@@ -1,6 +1,10 @@
 import random
 import matplotlib.pyplot as plt
+#work on a fail safe to repeat the question if not valid answer is given
+#seperate list
+#set the reading to utf-8
 
+#Organizing the questions into a dictionary
 def createDictionary(filename):
 
     openedFile = open(filename, errors='ignore')
@@ -33,6 +37,102 @@ MasterDictionary['History'] = History
 MasterDictionary['Sport'] = Sport
 MasterDictionary['Math'] = Math
 
+def failsafe():
+    guess =  input('Type 1, 2, 3, or 4:')
+    if guess == '1' or guess == '2' or guess == '3' or guess == '4':
+        return guess
+    else:
+        print('Sorry, that was not an option, please enter 1, 2, 3, or 4.')
+def failsafe1():
+    question =  input('Type Y or N:')
+    if question == 'N' or question == 'Y':
+        return question
+    else:
+        print('Sorry, that was not an option, please enter Y or N.')
+        
+def AlexTrebek(possible_questions, possible_answers):
+    QuestionNumber = random.randint(0,len(possible_questions) -  1)
+    AnswerNumber = random.randint(1, 5)
+    seperate = ('=' * 100)
+    fail = False
+    print(seperate)
+    print(possible_questions[QuestionNumber])
+    if AnswerNumber == 1:
+        print('1.', possible_answers[QuestionNumber])
+        print('2.', possible_answers[random.randint(0,len(possible_questions) - 1)])
+        print('3.', possible_answers[random.randint(0,len(possible_questions) - 1)])
+        print('4.', possible_answers[random.randint(0,len(possible_questions) - 1)])
+        print(seperate)
+        g = failsafe()
+        if g == '1' or g == '2' or g == '3' or g == '4':
+            fail = False
+        else:
+            fail = True
+        while fail == True:
+            g = failsafe()
+            if g == '1' or g == '2' or g == '3' or g == '4':
+                fail = False
+        if g == '1':
+            return 1
+        else:
+            return possible_answers[QuestionNumber]
+    if AnswerNumber == 2:
+        print('1.', possible_answers[random.randint(0,len(possible_questions) -  1)])
+        print('2.', possible_answers[QuestionNumber])
+        print('3.', possible_answers[random.randint(0,len(possible_questions) -  1)])
+        print('4.', possible_answers[random.randint(0,len(possible_questions) -  1)])
+        print(seperate)
+        g = failsafe()
+        if g == '1' or g == '2' or g == '3' or g == '4':
+            fail = False
+        else:
+            fail = True
+        while fail == True:
+            g = failsafe()
+            if g == '1' or g == '2' or g == '3' or g == '4':
+                fail = False
+        if g == '2':
+            return 1
+        else:
+            return possible_answers[QuestionNumber]
+    if AnswerNumber == 3:
+        print('1.', possible_answers[random.randint(0,len(possible_questions) -  1)])
+        print('2.', possible_answers[random.randint(0,len(possible_questions) -  1)])
+        print('3.', possible_answers[QuestionNumber])
+        print('4.', possible_answers[random.randint(0,len(possible_questions) -  1)])
+        print(seperate)
+        g = failsafe()
+        if g == '1' or g == '2' or g == '3' or g == '4':
+            fail = False
+        else:
+            fail = True
+        while fail == True:
+            g = failsafe()
+            if g == '1' or g == '2' or g == '3' or g == '4':
+                fail = False
+        if g == '3':
+            return 1
+        else:
+            return possible_answers[QuestionNumber]
+    if AnswerNumber == 4:
+        print('1.', possible_answers[random.randint(0,len(possible_questions) -  1)])
+        print('2.', possible_answers[random.randint(0,len(possible_questions) -  1)])
+        print('3.', possible_answers[random.randint(0,len(possible_questions) -  1)])
+        print('4.', possible_answers[QuestionNumber])
+        print(seperate)
+        g = failsafe()
+        if g == '1' or g == '2' or g == '3' or g == '4':
+            fail = False
+        else:
+            fail = True
+        while fail == True:
+            g = failsafe()
+            if g == '1' or g == '2' or g == '3' or g == '4':
+                fail = False
+        if g == '4':
+            return 1
+        else:
+            return possible_answers[QuestionNumber]
 
 print('To start the game type Trivia() in the shell')
 
@@ -50,6 +150,7 @@ def Trivia():
     math_score = 0
     sport_score = 0
     state = True
+    fail1 = True
     if turn == 0:
         print('''
 Welcome to the Python-based Trivia Game!
@@ -57,285 +158,73 @@ In this game you will be given a random category and a question from that catego
 Let's begin! :) ''')
     while state == True:
         print('Would you like to spin?')
-        Go = input('Type Y or N:')
+        Go = failsafe1()
+        if Go == 'N' or Go == 'Y':
+            fail1 = False
+        else:
+            fail1 = True
+        while fail1 == True:
+            Go = failsafe1()
+            if Go == 'N' or Go == 'Y':
+                fail1 = False
         if Go == 'Y':
-            g = random.randint(1, 5)
+            g = random.randint(1, 4)
             if g == 1:
                 print('You spun History')
                 continue1 = input('Type anything to continue:')
                 possible_questions = list(MasterDictionary['History'].keys()) 
                 possible_answers = list(MasterDictionary['History'].values())
-                QuestionNumber = random.randint(0,len(possible_questions) + 1)
-                AnswerNumber = random.randint(1, 5)
-                print('====================')
-                print(possible_questions[QuestionNumber])
-                if AnswerNumber == 1:
-                    print('1.', possible_answers[QuestionNumber])
-                    print('2.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('3.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('4.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('====================')
-                    guess = input('Type 1, 2, 3, or 4:')
-                    if guess == '1':
-                        print('Correct!')
-                        history_score += 1
-                        score += 100
-                        print('score:' + str(score))
-                    else:
-                        print('Incorrect, the answer is 1' )
-                        print('score:' + str(score))
-                if AnswerNumber == 2:
-                    print('1.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('2.', possible_answers[QuestionNumber])
-                    print('3.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('4.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('====================')
-                    guess = input('Type 1, 2, 3, or 4:')
-                    if guess == '2':
-                        print('Correct!')
-                        history_score += 1
-                        score += 100
-                        print('score:' + str(score))
-                    else:
-                        print('Incorrect, the answer is 2' )
-                        print('score:' + str(score))
-                if AnswerNumber == 3:
-                    print('1.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('2.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('3.', possible_answers[QuestionNumber])
-                    print('4.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('====================')
-                    guess = input('Type 1, 2, 3, or 4:')
-                    if guess == '3':
-                        print('Correct!')
-                        history_score += 1
-                        score += 100
-                        print('score:' + str(score))
-                    else:
-                        print('Incorrect, the answer is 3' )
-                        print('score:' + str(score))
-                if AnswerNumber == 4:
-                    print('1.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('2.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('3.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('4.', possible_answers[QuestionNumber])
-                    print('====================')
-                    guess = input('Type 1, 2, 3, or 4:')
-                    if guess == '4':
-                        print('Correct!')
-                        history_score += 1
-                        score += 100
-                        print('score:' + str(score))
-                    else:
-                        print('Incorrect, the answer is 4' )
-                        print('score:' + str(score))
+                Answer = AlexTrebek(possible_questions, possible_answers)
+                if Answer == 1:
+                    print('Correct!')
+                    history_score += 1
+                    score += 100
+                    print('score:' + str(score))
+                else:
+                    print('Incorrect, the answer is', Answer)
+                    print('score:' + str(score))
             elif g == 2:
                 print('You spun Science')
                 continue1 = input('Type anything to continue:')
                 possible_questions = list(MasterDictionary['Science'].keys()) 
                 possible_answers = list(MasterDictionary['Science'].values())
-                QuestionNumber = random.randint(0,len(possible_questions) + 1)
-                AnswerNumber = random.randint(1, 5)
-                print('====================')
-                print(possible_questions[QuestionNumber])
-                if AnswerNumber == 1:
-                    print('1.', possible_answers[QuestionNumber])
-                    print('2.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('3.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('4.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('====================')
-                    guess = input('Type 1, 2, 3, or 4:')
-                    if guess == '1':
-                        print('Correct!')
-                        science_score += 1
-                        score += 100
-                        print('score:' + str(score))
-                    else:
-                        print('Incorrect, the answer is 1' )
-                        print('score:' + str(score))
-                if AnswerNumber == 2:
-                    print('1.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('2.', possible_answers[QuestionNumber])
-                    print('3.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('4.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('====================')
-                    guess = input('Type 1, 2, 3, or 4:')
-                    if guess == '2':
-                        print('Correct!')
-                        science_score += 1
-                        score += 100
-                        print('score:' + str(score))
-                    else:
-                        print('Incorrect, the answer is 2' )
-                        print('score:' + str(score))
-                if AnswerNumber == 3:
-                    print('1.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('2.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('3.', possible_answers[QuestionNumber])
-                    print('4.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('====================')
-                    guess = input('Type 1, 2, 3, or 4:')
-                    if guess == '3':
-                        print('Correct!')
-                        science_score += 1
-                        score += 100
-                        print('score:' + str(score))
-                    else:
-                        print('Incorrect, the answer is 3' )
-                        print('score:' + str(score))
-                if AnswerNumber == 4:
-                    print('1.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('2.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('3.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('4.', possible_answers[QuestionNumber])
-                    print('====================')
-                    guess = input('Type 1, 2, 3, or 4:')
-                    if guess == '4':
-                        print('Correct!')
-                        science_score += 1
-                        score += 100
-                        print('score:' + str(score))
-                    else:
-                        print('Incorrect, the answer is 4' )
-                        print('score:' + str(score))
+                Answer = AlexTrebek(possible_questions, possible_answers)
+                if Answer == 1:
+                    print('Correct!')
+                    science_score += 1
+                    score += 100
+                    print('score:' + str(score))
+                else:
+                    print('Incorrect, the answer is', Answer)
+                    print('score:' + str(score))
             elif g == 3:
                 print('You spun Math')
                 continue1 = input('Type anything to continue:')
                 possible_questions = list(MasterDictionary['Math'].keys()) 
                 possible_answers = list(MasterDictionary['Math'].values())
-                QuestionNumber = random.randint(0,len(possible_questions) + 1)
-                AnswerNumber = random.randint(1, 5)
-                print('====================')
-                print(possible_questions[QuestionNumber])
-                if AnswerNumber == 1:
-                    print('1.', possible_answers[QuestionNumber])
-                    print('2.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('3.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('4.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('====================')
-                    guess = input('Type 1, 2, 3, or 4:')
-                    if guess == '1':
-                        print('Correct!')
-                        math_score += 1
-                        score += 100
-                        print('score:' + str(score))
-                    else:
-                        print('Incorrect, the answer is 1' )
-                        print('score:' + str(score))
-                if AnswerNumber == 2:
-                    print('1.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('2.', possible_answers[QuestionNumber])
-                    print('3.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('4.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('====================')
-                    guess = input('Type 1, 2, 3, or 4:')
-                    if guess == '2':
-                        print('Correct!')
-                        math_score += 1
-                        score += 100
-                        print('score:' + str(score))
-                    else:
-                        print('Incorrect, the answer is 2' )
-                        print('score:' + str(score))
-                if AnswerNumber == 3:
-                    print('1.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('2.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('3.', possible_answers[QuestionNumber])
-                    print('4.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('====================')
-                    guess = input('Type 1, 2, 3, or 4:')
-                    if guess == '3':
-                        print('Correct!')
-                        math_score += 1
-                        score += 100
-                        print('score:' + str(score))
-                    else:
-                        print('Incorrect, the answer is 3' )
-                        print('score:' + str(score))
-                if AnswerNumber == 4:
-                    print('1.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('2.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('3.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('4.', possible_answers[QuestionNumber])
-                    print('====================')
-                    guess = input('Type 1, 2, 3, or 4:')
-                    if guess == '4':
-                        print('Correct!')
-                        math_score += 1
-                        score += 100
-                        print('score:' + str(score))
-                    else:
-                        print('Incorrect, the answer is 4' )
-                        print('score:' + str(score))
+                Answer = AlexTrebek(possible_questions, possible_answers)
+                if Answer == 1:
+                    print('Correct!')
+                    math_score += 1
+                    score += 100
+                    print('score:' + str(score))
+                else:
+                    print('Incorrect, the answer is', Answer)
+                    print('score:' + str(score))
             else:
                 print('You spun Sport')
                 continue1 = input('Type anything to continue:')
                 possible_questions = list(MasterDictionary['Sport'].keys()) 
                 possible_answers = list(MasterDictionary['Sport'].values())
-                QuestionNumber = random.randint(0,len(possible_questions) + 1)
-                AnswerNumber = random.randint(1, 5)
-                print('====================')
-                print(possible_questions[QuestionNumber])
-                if AnswerNumber == 1:
-                    print('1.', possible_answers[QuestionNumber])
-                    print('2.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('3.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('4.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('====================')
-                    guess = input('Type 1, 2, 3, or 4:')
-                    if guess == '1':
-                        print('Correct!')
-                        sport_score += 1
-                        score += 100
-                        print('score:' + str(score))
-                    else:
-                        print('Incorrect, the answer is 1' )
-                        print('score:' + str(score))
-                if AnswerNumber == 2:
-                    print('1.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('2.', possible_answers[QuestionNumber])
-                    print('3.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('4.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('====================')
-                    guess = input('Type 1, 2, 3, or 4:')
-                    if guess == '2':
-                        print('Correct!')
-                        sport_score += 1
-                        score += 100
-                        print('score:' + str(score))
-                    else:
-                        print('Incorrect, the answer is 2' )
-                        print('score:' + str(score))
-                if AnswerNumber == 3:
-                    print('1.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('2.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('3.', possible_answers[QuestionNumber])
-                    print('4.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('====================')
-                    guess = input('Type 1, 2, 3, or 4:')
-                    if guess == '3':
-                        print('Correct!')
-                        sport_score += 1
-                        score += 100
-                        print('score:' + str(score))
-                    else:
-                        print('Incorrect, the answer is 3' )
-                        print('score:' + str(score))
-                if AnswerNumber == 4:
-                    print('1.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('2.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('3.', possible_answers[random.randint(0,len(possible_questions) + 1)])
-                    print('4.', possible_answers[QuestionNumber])
-                    print('====================')
-                    guess = input('Type 1, 2, 3, or 4:')
-                    if guess == '4':
-                        print('Correct!')
-                        sport_score += 1
-                        score += 100
-                        print('score:' + str(score))
-                    else:
-                        print('Incorrect, the answer is 4' )
-                        print('score:' + str(score))
+                Answer = AlexTrebek(possible_questions, possible_answers)
+                if Answer == 1:
+                    print('Correct!')
+                    sport_score += 1
+                    score += 100
+                    print('score:' + str(score))
+                else:
+                    print('Incorrect, the answer is', Answer)
+                    print('score:' + str(score))
         else:
             state = False
             plt.bar(['History', 'Science', 'Math', 'Sport'], [history_score, science_score, math_score, sport_score])
@@ -343,6 +232,7 @@ Let's begin! :) ''')
             plt.xlabel('Number of Questions Correct')
             plt.ylabel('Category')
             plt.show()
+
 
 
     
