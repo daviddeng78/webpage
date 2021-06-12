@@ -1,1 +1,1 @@
-This is a website dedicated to Team <>'s final project for Intro to Computer Science taught by Mr. Dyrland-Weaver.
+This is a website dedicated to Team Trivia's final project for Intro to Computer Science taught by Mr. Dyrland-Weaver.
