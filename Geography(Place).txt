@@ -1,0 +1,137 @@
+Trivia Question: What is the capital city of Spain?
+Answer: Madrid.
+
+Trivia Question: What country is home to the tallest mountain in the world, Mount Everest?
+Answer: Nepal.
+
+Trivia Question: After Alaska, which U.S. state has the longest coastline?
+Answer: Florida.
+
+Trivia Question: What country has the largest population in the world?
+Answer: China.
+
+Trivia Question: What are the 5 U.S. states that have a coastline on the Gulf of Mexico?
+Answer: Texas, Louisiana, Mississippi, Alabama, Florida
+
+Trivia Question: What is the capital city of Australia?
+Answer: Canberra.
+
+Trivia Question: What is the only country that borders the United Kingdom?
+Answer: Ireland.
+
+Trivia Question: Where is the largest volcano on Earth located?
+Answer: Hawaii.
+
+Trivia Question: What is the name of the highest waterfall in the world?
+Answer: Angel Falls, in Venezuela.
+
+Trivia Question: What is the largest U.S. state?
+Answer: Alaska.
+
+Trivia Question: What does the “D.C.” stand for in Washington, D.C.?
+Answer: District of Columbia
+
+Trivia Question: What is the state capital of New York?
+Answer: Albany.
+
+Trivia Question: What is the capital of the American state of Arizona?
+Answer: Phoenix
+
+Trivia Question: What is the only state in the United States that does not have a flag in a shape with 4 edges?
+Answer: Ohio
+
+Trivia Question: In which city, is the Big Nickel located in Canada?
+Answer: Sudbury, Ontario
+
+Trivia Question: What is the Capital of the United States?
+Answer: Washington, D.C.
+
+Trivia Question: What is the tallest mountain in Canada?
+Answer: Mount Logan
+
+Trivia Question: What is Canada’s largest island?
+Answer: Baffin Island
+
+Trivia Question: Where is Barbados?
+Answer: In the Caribbean
+
+Trivia Question: What is the capital city of the State of Washington, United States?
+Answer: Olympia
+
+Trivia Question: Which state is bordered by Nebraska, Kansas, Oklahoma, New Mexico, Utah, and Wyoming?
+Answer: Colorado.
+
+Trivia Question: Which of these African countries list “Spanish” as an official language?
+Answer: Equatorial Guinea
+
+Trivia Question: What is the capital of Senegal?
+Answer: Dakar
+
+Trivia Question: In which South American country would you find the statue, Christ the Redeemer?
+Answer: Brazil.
+
+Trivia Question: What African country has Portuguese as its official language?
+Answer: Mozambique
+
+Trivia Question: What is the name of the largest island in Africa?
+Answer: Madagascar.
+
+Trivia Question: What is the name of the smallest country in South America?
+Answer: Suriname.
+
+Trivia Question: The historical city Timbuktu is located in which West African country?
+Answer: Mali
+
+Trivia Question: Which African nation has the most pyramids?
+Answer: Sudan. 
+
+Trivia Question: What is the largest non-continental island in the world?
+Answer: Greenland
+
+Trivia Question: Which country in the European Union has the biggest population?
+Answer: Germany.
+
+Trivia Question: The derisive acronym “PIIGS” refers to which of the following European countries and their economic statuses?
+Answer: Portugal, Ireland, Italy, Greece, Spain
+
+Trivia Question: What is the largest country in the world in terms of land area?
+Answer: Russia
+
+rivia Question: What is the capital of Denmark?
+Answer: Copenhagen
+
+Trivia Question: What is the Polish city known to Germans as Danzig?
+Answer: Gdańsk
+
+Trivia Question: What is the smallest country in the world?
+Answer: Vatican City
+
+Trivia Question: What is the capital of Scotland?
+Answer: Edinburgh
+
+Trivia Question: Which small country is located between the borders of France and Spain?
+Answer: Andorra
+
+Trivia Question: Where would you find the “Spanish Steps”?
+Answer: Rome, Italy
+
+Trivia Question: Which country has the abbreviation “CH”?
+Answer: Switzerland
+
+Trivia Question: What is the capital city of New Zealand?
+Answer: Wellington
+
+Trivia Question: Kuala Lumpur is the capital city of which country?
+Answer: Malaysia
+
+Trivia Question: The Grear Barrier Reef is off the coast of which Australian state?
+Answer: Queensland
+
+Trivia Question: Mt. Fuji is the highest point in which Asian country?
+Answer: Japan.
+
+Trivia Question: Denali is the highest mountain in which continent?
+Answer: North America
+
+Trivia Question: Which city is situated on two continents?
+Answer: Istanbul
