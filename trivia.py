@@ -1,13 +1,14 @@
 import random
 import matplotlib.pyplot as plt
-#work on a fail safe to repeat the question if not valid answer is given
-#seperate list
 #set the reading to utf-8
+#work on a detector to detect possible answers of the same choice
+#add a new option for the player to chose the category
+#work on turn counter
 
 #Organizing the questions into a dictionary
 def createDictionary(filename):
 
-    openedFile = open(filename, errors='ignore')
+    openedFile = open(filename, errors='ignore', encoding="utf-8")
     readFile = openedFile.read()
     openedFile.close()
 
@@ -26,16 +27,38 @@ def createDictionary(filename):
 
     return categoryDictionary
 
-Science = createDictionary("ScienceQuestions.txt")
-History = createDictionary("HistoryQuestions.txt")
-Sport = createDictionary("SportQuestions.txt")
-Math = createDictionary("MathQuestions.txt")
+# Science = createDictionary("ScienceQuestions.txt")
+# History = createDictionary("HistoryQuestions.txt")
+# Sport = createDictionary("SportQuestions.txt")
+# Math = createDictionary("MathQuestions.txt")
+MathInteger = createDictionary('Math(Integer).txt')
+MusicSong = createDictionary('Music(Song).txt')
+MusicPlace = createDictionary('Music(Place).txt')
+MusicGroup = createDictionary('Music(Group).txt')
+MusicAlbum = createDictionary('Music(Album).txt')
+MusicPeople = createDictionary('Music(People).txt')
+SciencePeople = createDictionary('Science(People).txt')
+ScienceAnimal = createDictionary('Science(Animal).txt')
+ScienceTerm = createDictionary('Science(Term).txt')
+ScienceElement = createDictionary('Science(Element).txt')
+ScienceSpace = createDictionary('Science(Space).txt')
+ScienceProcess = createDictionary('Science(Process).txt')
+ScienceBody = createDictionary('Science(Body).txt')
+GeographyPlace = createDictionary('Geography(Place).txt')
+MovieMovie = createDictionary('Movie(Movie).txt')
+MoviePeople = createDictionary('Movie(People).txt')
+HistoryDate = createDictionary('History(Date).txt')
+HistoryEvent = createDictionary('History(Event).txt')
+HistoryLocation = createDictionary('History(Location).txt')
+HistoryPeople = createDictionary('History(People).txt')
 
 MasterDictionary = {}
-MasterDictionary['Science'] = Science
-MasterDictionary['History'] = History
-MasterDictionary['Sport'] = Sport
-MasterDictionary['Math'] = Math
+MasterDictionary['Science'] = [SciencePeople, ScienceAnimal, ScienceTerm, ScienceElement, ScienceSpace, ScienceProcess, ScienceBody]
+MasterDictionary['History'] = [HistoryDate, HistoryEvent, HistoryLocation, HistoryPeople]
+MasterDictionary['Music'] = [MusicSong, MusicPlace, MusicGroup, MusicAlbum, MusicPeople]
+MasterDictionary['Math'] = [MathInteger]
+MasterDictionary['Geography'] = [GeographyPlace]
+MasterDictionary['Movie'] = [MovieMovie, MoviePeople]
 
 def failsafe():
     guess =  input('Type 1, 2, 3, or 4:')
@@ -52,7 +75,7 @@ def failsafe1():
         
 def AlexTrebek(possible_questions, possible_answers):
     QuestionNumber = random.randint(0,len(possible_questions) -  1)
-    AnswerNumber = random.randint(1, 5)
+    AnswerNumber = random.randint(1, 4)
     seperate = ('=' * 100)
     fail = False
     print(seperate)
@@ -139,16 +162,20 @@ print('To start the game type Trivia() in the shell')
 
 def Trivia():
     MasterDictionary = {}
-    MasterDictionary['Science'] = Science
-    MasterDictionary['History'] = History
-    MasterDictionary['Sport'] = Sport
-    MasterDictionary['Math'] = Math
+    MasterDictionary['Science'] = [SciencePeople, ScienceAnimal, ScienceTerm, ScienceElement, ScienceSpace, ScienceProcess, ScienceBody]
+    MasterDictionary['History'] = [HistoryDate, HistoryEvent, HistoryLocation, HistoryPeople]
+    MasterDictionary['Music'] = [MusicSong, MusicPlace, MusicGroup, MusicAlbum, MusicPeople]
+    MasterDictionary['Math'] = [MathInteger]
+    MasterDictionary['Geography'] = [GeographyPlace]
+    MasterDictionary['Movie'] = [MovieMovie, MoviePeople]
     turn = 0
     score = 0
     history_score = 0
     science_score = 0
     math_score = 0
-    sport_score = 0
+    geography_score = 0
+    music_score = 0
+    movie_score = 0
     state = True
     fail1 = True
     if turn == 0:
@@ -168,66 +195,125 @@ Let's begin! :) ''')
             if Go == 'N' or Go == 'Y':
                 fail1 = False
         if Go == 'Y':
-            g = random.randint(1, 4)
+            g = random.randint(1, 6)
             if g == 1:
                 print('You spun History')
                 continue1 = input('Type anything to continue:')
-                possible_questions = list(MasterDictionary['History'].keys()) 
-                possible_answers = list(MasterDictionary['History'].values())
+                subset = random.randint(0, len(MasterDictionary['History']) - 1)
+                possible_questions = list((MasterDictionary['History'])[subset].keys()) 
+                possible_answers = list((MasterDictionary['History'])[subset].values())
                 Answer = AlexTrebek(possible_questions, possible_answers)
                 if Answer == 1:
                     print('Correct!')
                     history_score += 1
                     score += 100
                     print('score:' + str(score))
+                    turn += 1
+                    print('round:' + str(turn))
                 else:
                     print('Incorrect, the answer is', Answer)
                     print('score:' + str(score))
+                    turn += 1
+                    print('round:' + str(turn))
+                    
             elif g == 2:
                 print('You spun Science')
                 continue1 = input('Type anything to continue:')
-                possible_questions = list(MasterDictionary['Science'].keys()) 
-                possible_answers = list(MasterDictionary['Science'].values())
+                subset = random.randint(0, len(MasterDictionary['Science']) - 1)
+                possible_questions = list((MasterDictionary['Science'])[subset].keys()) 
+                possible_answers = list((MasterDictionary['Science'])[subset].values())
                 Answer = AlexTrebek(possible_questions, possible_answers)
                 if Answer == 1:
                     print('Correct!')
                     science_score += 1
                     score += 100
                     print('score:' + str(score))
+                    turn += 1
+                    print('round:' + str(turn))
                 else:
                     print('Incorrect, the answer is', Answer)
                     print('score:' + str(score))
+                    turn += 1
+                    print('round:' + str(turn))
             elif g == 3:
                 print('You spun Math')
                 continue1 = input('Type anything to continue:')
-                possible_questions = list(MasterDictionary['Math'].keys()) 
-                possible_answers = list(MasterDictionary['Math'].values())
+                subset = random.randint(0, len(MasterDictionary['Math']) - 1)
+                possible_questions = list((MasterDictionary['Math'])[subset].keys()) 
+                possible_answers = list((MasterDictionary['Math'])[subset].values())
                 Answer = AlexTrebek(possible_questions, possible_answers)
                 if Answer == 1:
                     print('Correct!')
                     math_score += 1
                     score += 100
                     print('score:' + str(score))
+                    turn += 1
+                    print('round:' + str(turn))
                 else:
                     print('Incorrect, the answer is', Answer)
                     print('score:' + str(score))
-            else:
-                print('You spun Sport')
+                    turn += 1
+                    print('round:' + str(turn))
+            elif g == 4:
+                print('You spun Geography')
                 continue1 = input('Type anything to continue:')
-                possible_questions = list(MasterDictionary['Sport'].keys()) 
-                possible_answers = list(MasterDictionary['Sport'].values())
+                subset = random.randint(0, len(MasterDictionary['Geography']) - 1)
+                possible_questions = list((MasterDictionary['Geography'])[subset].keys()) 
+                possible_answers = list((MasterDictionary['Geography'])[subset].values())
                 Answer = AlexTrebek(possible_questions, possible_answers)
                 if Answer == 1:
                     print('Correct!')
-                    sport_score += 1
+                    science_score += 1
                     score += 100
                     print('score:' + str(score))
+                    turn += 1
+                    print('round:' + str(turn))
                 else:
                     print('Incorrect, the answer is', Answer)
                     print('score:' + str(score))
+                    turn += 1
+                    print('round:' + str(turn))
+            elif g == 5:
+                print('You spun Music')
+                continue1 = input('Type anything to continue:')
+                subset = random.randint(0, len(MasterDictionary['Music']) - 1)
+                possible_questions = list((MasterDictionary['Music'])[subset].keys()) 
+                possible_answers = list((MasterDictionary['Music'])[subset].values())
+                Answer = AlexTrebek(possible_questions, possible_answers)
+                if Answer == 1:
+                    print('Correct!')
+                    music_score += 1
+                    score += 100
+                    print('score:' + str(score))
+                    turn += 1
+                    print('round:' + str(turn))
+                else:
+                    print('Incorrect, the answer is', Answer)
+                    print('score:' + str(score))
+                    turn += 1
+                    print('round:' + str(turn))
+            elif g == 6:
+                print('You spun Movie')
+                continue1 = input('Type anything to continue:')
+                subset = random.randint(0, len(MasterDictionary['Movie']) - 1)
+                possible_questions = list((MasterDictionary['Movie'])[subset].keys()) 
+                possible_answers = list((MasterDictionary['Movie'])[subset].values())
+                Answer = AlexTrebek(possible_questions, possible_answers)
+                if Answer == 1:
+                    print('Correct!')
+                    movie_score += 1
+                    score += 100
+                    print('score:' + str(score))
+                    turn += 1
+                    print('round:' + str(turn))
+                else:
+                    print('Incorrect, the answer is', Answer)
+                    print('score:' + str(score))
+                    turn += 1
+                    print('round:' + str(turn))
         else:
             state = False
-            plt.bar(['History', 'Science', 'Math', 'Sport'], [history_score, science_score, math_score, sport_score])
+            plt.bar(['History', 'Science', 'Math', 'Geography', 'Music', 'Movie'], [history_score, science_score, math_score, geography_score, music_score, movie_score])
             plt.title('How did you do?')
             plt.xlabel('Number of Questions Correct')
             plt.ylabel('Category')

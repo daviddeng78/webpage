@@ -1,0 +1,44 @@
+Trivia Question: What is the nearest planet to the sun?
+Answer: Mercury
+
+Trivia Question: What planet in our solar system has the most gravity?
+Answer: Jupiter
+
+Trivia Question: What is the galaxy closest in light-years to the Milky Way Galaxy?
+Answer: Andromeda
+
+Trivia Question: Which constellation are the stars Castor and Pollux in?
+Answer: Gemini
+
+Trivia Question: Between which two planets does the asteroid belt lie?
+Answer: Jupiter and Mars
+
+Trivia Question: What is the only planet in our solar system less dense than water?
+Answer: Saturn
+
+Trivia Question: What is the fourth planet from the sun?
+Answer: Mars
+
+Trivia Question: Ganymede is a moon of which planet?
+Answer: Jupiter
+
+Trivia Question: What planet is famous for its big red spot on it?
+Answer: Jupiter
+
+Trivia Question: What is the sun?
+Answer: A star
+
+Trivia Question: Olympus Mons is a large volcanic mountain on which planet?
+Answer: Mars
+
+Trivia Question: What planet is closest in size to Earth?
+Answer: Venus
+
+Trivia Question: What is the seventh planet from the Sun?
+Answer: Uranus
+
+Trivia Question: What is the earth’s primary source of energy?
+Answer: The sun
+
+Trivia Question: What planet is circled by two moons?
+Answer: Mars
