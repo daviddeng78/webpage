@@ -1,9 +1,5 @@
 import random
 import matplotlib.pyplot as plt
-#set the reading to utf-8
-#work on a detector to detect possible answers of the same choice
-#add a new option for the player to chose the category
-#work on turn counter
 
 #Organizing the questions into a dictionary
 def createDictionary(filename):
@@ -27,10 +23,6 @@ def createDictionary(filename):
 
     return categoryDictionary
 
-# Science = createDictionary("ScienceQuestions.txt")
-# History = createDictionary("HistoryQuestions.txt")
-# Sport = createDictionary("SportQuestions.txt")
-# Math = createDictionary("MathQuestions.txt")
 MathInteger = createDictionary('Math(Integer).txt')
 MusicSong = createDictionary('Music(Song).txt')
 MusicPlace = createDictionary('Music(Place).txt')
@@ -72,19 +64,30 @@ def failsafe1():
         return question
     else:
         print('Sorry, that was not an option, please enter Y or N.')
+def failsafe2():
+    category =  input('Type 1, 2, 3, 4, 5, or 6 to select the category of the question:')
+    if category == '1' or category == '2' or category == '3' or category == '4' or category == '5'or category == '6':
+        return category
+    else:
+        print('Sorry, that was not an option, please enter 1, 2, 3, 4, 5, 6.')
         
 def AlexTrebek(possible_questions, possible_answers):
     QuestionNumber = random.randint(0,len(possible_questions) -  1)
     AnswerNumber = random.randint(1, 4)
     seperate = ('=' * 100)
+    possible_wrong = []
     fail = False
+    for i in possible_answers:
+        if i != possible_answers[QuestionNumber]:
+            possible_wrong.append(i)
     print(seperate)
     print(possible_questions[QuestionNumber])
+    choices_wrong = random.sample(possible_wrong, 3)
     if AnswerNumber == 1:
         print('1.', possible_answers[QuestionNumber])
-        print('2.', possible_answers[random.randint(0,len(possible_questions) - 1)])
-        print('3.', possible_answers[random.randint(0,len(possible_questions) - 1)])
-        print('4.', possible_answers[random.randint(0,len(possible_questions) - 1)])
+        print('2.', choices_wrong[0])
+        print('3.', choices_wrong[1])
+        print('4.', choices_wrong[2])
         print(seperate)
         g = failsafe()
         if g == '1' or g == '2' or g == '3' or g == '4':
@@ -100,10 +103,10 @@ def AlexTrebek(possible_questions, possible_answers):
         else:
             return possible_answers[QuestionNumber]
     if AnswerNumber == 2:
-        print('1.', possible_answers[random.randint(0,len(possible_questions) -  1)])
+        print('1.', choices_wrong[0])
         print('2.', possible_answers[QuestionNumber])
-        print('3.', possible_answers[random.randint(0,len(possible_questions) -  1)])
-        print('4.', possible_answers[random.randint(0,len(possible_questions) -  1)])
+        print('3.', choices_wrong[1])
+        print('4.', choices_wrong[2])
         print(seperate)
         g = failsafe()
         if g == '1' or g == '2' or g == '3' or g == '4':
@@ -119,10 +122,10 @@ def AlexTrebek(possible_questions, possible_answers):
         else:
             return possible_answers[QuestionNumber]
     if AnswerNumber == 3:
-        print('1.', possible_answers[random.randint(0,len(possible_questions) -  1)])
-        print('2.', possible_answers[random.randint(0,len(possible_questions) -  1)])
+        print('1.', choices_wrong[0])
+        print('2.', choices_wrong[1])
         print('3.', possible_answers[QuestionNumber])
-        print('4.', possible_answers[random.randint(0,len(possible_questions) -  1)])
+        print('4.', choices_wrong[2])
         print(seperate)
         g = failsafe()
         if g == '1' or g == '2' or g == '3' or g == '4':
@@ -138,9 +141,9 @@ def AlexTrebek(possible_questions, possible_answers):
         else:
             return possible_answers[QuestionNumber]
     if AnswerNumber == 4:
-        print('1.', possible_answers[random.randint(0,len(possible_questions) -  1)])
-        print('2.', possible_answers[random.randint(0,len(possible_questions) -  1)])
-        print('3.', possible_answers[random.randint(0,len(possible_questions) -  1)])
+        print('1.', choices_wrong[0])
+        print('2.', choices_wrong[1])
+        print('3.', choices_wrong[2])
         print('4.', possible_answers[QuestionNumber])
         print(seperate)
         g = failsafe()
@@ -178,6 +181,7 @@ def Trivia():
     movie_score = 0
     state = True
     fail1 = True
+    fail2 = True
     if turn == 0:
         print('''
 Welcome to the Python-based Trivia Game!
@@ -195,8 +199,26 @@ Let's begin! :) ''')
             if Go == 'N' or Go == 'Y':
                 fail1 = False
         if Go == 'Y':
-            g = random.randint(1, 6)
-            if g == 1:
+            g = random.randint(0, 6)
+            if g == 0:
+                print('You spun the Crown')
+                print('''Choose a category:
+1. History
+2. Science
+3. Math
+4. Geography
+5. Music
+6. Movie''')
+                g = failsafe2()
+                if g == '1' or g == '2' or g == '3' or g == '4'or g == '5'or g == '6':
+                    fail2 = False
+                else:
+                    fail2 = True
+                while fail2 == True:
+                    g = failsafe2()
+                    if g == '1' or g == '2' or g == '3' or g == '4'or g == '5'or g == '6':
+                        fail2 = False
+            if g == 1 or g == '1':
                 print('You spun History')
                 continue1 = input('Type anything to continue:')
                 subset = random.randint(0, len(MasterDictionary['History']) - 1)
@@ -216,7 +238,7 @@ Let's begin! :) ''')
                     turn += 1
                     print('round:' + str(turn))
                     
-            elif g == 2:
+            if g == 2 or g == '2':
                 print('You spun Science')
                 continue1 = input('Type anything to continue:')
                 subset = random.randint(0, len(MasterDictionary['Science']) - 1)
@@ -235,7 +257,7 @@ Let's begin! :) ''')
                     print('score:' + str(score))
                     turn += 1
                     print('round:' + str(turn))
-            elif g == 3:
+            if g == 3 or g == '3':
                 print('You spun Math')
                 continue1 = input('Type anything to continue:')
                 subset = random.randint(0, len(MasterDictionary['Math']) - 1)
@@ -254,7 +276,7 @@ Let's begin! :) ''')
                     print('score:' + str(score))
                     turn += 1
                     print('round:' + str(turn))
-            elif g == 4:
+            if g == 4 or g == '4':
                 print('You spun Geography')
                 continue1 = input('Type anything to continue:')
                 subset = random.randint(0, len(MasterDictionary['Geography']) - 1)
@@ -273,7 +295,7 @@ Let's begin! :) ''')
                     print('score:' + str(score))
                     turn += 1
                     print('round:' + str(turn))
-            elif g == 5:
+            if g == 5 or g == '5':
                 print('You spun Music')
                 continue1 = input('Type anything to continue:')
                 subset = random.randint(0, len(MasterDictionary['Music']) - 1)
@@ -292,7 +314,7 @@ Let's begin! :) ''')
                     print('score:' + str(score))
                     turn += 1
                     print('round:' + str(turn))
-            elif g == 6:
+            if g == 6 or g == '6':
                 print('You spun Movie')
                 continue1 = input('Type anything to continue:')
                 subset = random.randint(0, len(MasterDictionary['Movie']) - 1)
@@ -315,9 +337,10 @@ Let's begin! :) ''')
             state = False
             plt.bar(['History', 'Science', 'Math', 'Geography', 'Music', 'Movie'], [history_score, science_score, math_score, geography_score, music_score, movie_score])
             plt.title('How did you do?')
-            plt.xlabel('Number of Questions Correct')
-            plt.ylabel('Category')
+            plt.xlabel('Category')
+            plt.ylabel('Number of Questions Correct')
             plt.show()
+
 
 
 
