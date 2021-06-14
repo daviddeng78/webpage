@@ -29,3 +29,15 @@ body {
 .home {
     list-style-type: none;
 }
+
+.home a {
+    text-decoration: none;
+}
+
+.heading {
+    text-decoration: underline;
+}
+
+.info {
+    width: auto;
+}

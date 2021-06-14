@@ -16,22 +16,22 @@
     </div>
 
     <li>
-        <h3>Project Description</h3>
-        <p>This game is a trivia-style game, inspired by the popular mobile game Trivia Crack.</p>
+        <div class='heading'><h3>Project Description</h3></div>
+        <div class='info'><p>This game is a trivia-style game, inspired by the popular mobile game Trivia Crack.</p></div>
     </li>
 
     <li>
-        <h3>Instructions</h3>
-        <p>In order to start the program you will run it in Thonny. Everything will be going on in the shell. In order to start the game, you enter Trivia() into the shell. After that, you will be greeted with text instructing on what to do. The first question you will be asked is whether you want to spin or not. You will be given a choice between Y and N to enter. Y to continue the game and receive a question and N to end the game. When the game ends you will be provided with a graph on how you did. If you accidentally enter something other than the two options, there is a fail safe that will ask you to input something. This means that if you ever make a mistake when entering an answer, you will be able to try again until a valid answer is entered. All the questions are multiple choice and you will be able to enter 1, 2, 3, or 4. The fail safe also applies to this. If you are lucky you may spin the crown and you are able to choose the category your question will come from. You will be able to enter a number 1-6 and it will also contain a fail safe like the other two. Before each question is asked, there will be an input that asks for the user to enter anything to continue. Whatever is entered will not affect the game, it is just an intermediate. After each question the program will ask if you would like to continue and gives you the choice between Y and N. Whenever you feel that you no longer want to continue, you can enter N and the program will stop and give you your stats. If you didn't completely memorize the instructions don't worry! As stated early, instructions will be provided as you play.</p>
+        <div class='heading'><h3>Instructions</h3></div>
+        <div class='info'><p>In order to start the program you will run it in Thonny. Everything will be going on in the shell. In order to start the game, you enter Trivia() into the shell. After that, you will be greeted with text instructing on what to do. The first question you will be asked is whether you want to spin or not. You will be given a choice between Y and N to enter. Y to continue the game and receive a question and N to end the game. When the game ends you will be provided with a graph on how you did. If you accidentally enter something other than the two options, there is a fail safe that will ask you to input something. This means that if you ever make a mistake when entering an answer, you will be able to try again until a valid answer is entered. All the questions are multiple choice and you will be able to enter 1, 2, 3, or 4. The fail safe also applies to this. If you are lucky you may spin the crown and you are able to choose the category your question will come from. You will be able to enter a number 1-6 and it will also contain a fail safe like the other two. Before each question is asked, there will be an input that asks for the user to enter anything to continue. Whatever is entered will not affect the game, it is just an intermediate. After each question the program will ask if you would like to continue and gives you the choice between Y and N. Whenever you feel that you no longer want to continue, you can enter N and the program will stop and give you your stats. If you didn't completely memorize the instructions don't worry! As stated early, instructions will be provided as you play.</p></div>
     </li>
 
     <li>
-        <h3>How It Works</h3>
-        <p>This program works by implementing the same input() method that was used in the madlibs assignment this semester. The questions were manually sorted in order for the other choice to seem more similar. When the user decides to spin, the program uses random.randint to randomly choose a category. (The categories are dictionaries that were made using a function that converted the text files into dictionaries with the keys as the questions and the value as the answer. These dictionaries will be organized to the 6 main categories and then ultimately bundled together inside the Master Dictionary.) After that, a sub category will be chosen using the same method. Then a list of the sub categories' answers and questions will be used to randomly pick a question and answer. The number in which the answer will be is also randomized using  random.randint. This way the answer won't always be the first choice or whatever it would be set to. When the user inserts a valid answer the program will return an output depending on the outcome. If it was correct, the person gains 100 score and 1 point to the specific category that they got the question correct in. If it was incorrect. The user will be made aware of the correct answer and move on without gaining anything. In both cases, the player's score will be printed along with the round number. A while loop is used to allow the function to continue running until the player decides to stop. The fail safes also uses a while loop that continues to ask the player until a valid answer is received. For the other choices that weren't the answer, in order to prevent a repeat of an answer choice that the player receives. To achieve this, a for loop was used to remove the actual answers from the list and the wrong choices were randomly selected using random.sample() so that it doesn’t repeat any of the other doubles in the list.</p>
+        <div class='heading'><h3>How It Works</h3></div>
+        <div class='info'><p>This program works by implementing the same input() method that was used in the madlibs assignment this semester. The questions were manually sorted in order for the other choice to seem more similar. When the user decides to spin, the program uses random.randint to randomly choose a category. (The categories are dictionaries that were made using a function that converted the text files into dictionaries with the keys as the questions and the value as the answer. These dictionaries will be organized to the 6 main categories and then ultimately bundled together inside the Master Dictionary.) After that, a sub category will be chosen using the same method. Then a list of the sub categories' answers and questions will be used to randomly pick a question and answer. The number in which the answer will be is also randomized using  random.randint. This way the answer won't always be the first choice or whatever it would be set to. When the user inserts a valid answer the program will return an output depending on the outcome. If it was correct, the person gains 100 score and 1 point to the specific category that they got the question correct in. If it was incorrect. The user will be made aware of the correct answer and move on without gaining anything. In both cases, the player's score will be printed along with the round number. A while loop is used to allow the function to continue running until the player decides to stop. The fail safes also uses a while loop that continues to ask the player until a valid answer is received. For the other choices that weren't the answer, in order to prevent a repeat of an answer choice that the player receives. To achieve this, a for loop was used to remove the actual answers from the list and the wrong choices were randomly selected using random.sample() so that it doesn’t repeat any of the other doubles in the list.</p></div>
     </li>
 
     <li>
-        <h3>Files</h3>
+        <div class='heading'><h3>Files</h3></div>
 
         <ul>
             <li>
@@ -197,7 +197,7 @@
 
 
     <li>
-        <h3>Resources</h3>
+        <div class='heading'><h3>Resources</h3></div>
         <ul>
             <li>
                 <h4>Science Questions</h4>
@@ -264,7 +264,7 @@
     </li>
 
     <li>
-        <h3>Bugs, Errors and Things to Be Aware Of</h3>
+        <div class='heading'><h3>Bugs, Errors and Things to Be Aware Of</h3></div>
         <ul>
             <li>
                 <p>Questions have a chance of showing up again. This can be a way of helping the user learn from past mistakes.</p>
