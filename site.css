@@ -73,3 +73,15 @@ body {
 .categories:hover .category {
     display: block;
 }
+
+.info p {
+    border-style: inset;
+}
+
+.question {
+    font-weight: bold;
+}
+
+.answer {
+    text-decoration: underline;
+}
