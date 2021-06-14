@@ -75,11 +75,15 @@ def AlexTrebek(possible_questions, possible_answers):
     QuestionNumber = random.randint(0,len(possible_questions) -  1)
     AnswerNumber = random.randint(1, 4)
     seperate = ('=' * 100)
+    dict_wrong = {}
     possible_wrong = []
     fail = False
     for i in possible_answers:
         if i != possible_answers[QuestionNumber]:
             possible_wrong.append(i)
+    for i in possible_wrong:
+        dict_wrong[i] = 1
+    possible_wrong = list(dict_wrong.keys())
     print(seperate)
     print(possible_questions[QuestionNumber])
     choices_wrong = random.sample(possible_wrong, 3)
