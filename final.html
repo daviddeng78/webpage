@@ -1,0 +1,272 @@
+<title>Trivia Game</title>
+
+<h1>Trivia</h1>
+
+<h2>David Deng and Ivan Yeung, Period 9</h2>
+
+<ul>
+    <li>
+        <a href='home.html'>Project Link</a>
+    </li>
+
+    <li>
+        <h3>Project Description</h3>
+        <p>This game is a trivia-style game, inspired by the popular mobile game Trivia Crack.</p>
+    </li>
+
+    <li>
+        <h3>Instructions</h3>
+        <p>In order to start the program you will run it in Thonny. Everything will be going on in the shell. In order to start the game, you enter Trivia() into the shell. After that, you will be greeted with text instructing on what to do. The first question you will be asked is whether you want to spin or not. You will be given a choice between Y and N to enter. Y to continue the game and receive a question and N to end the game. When the game ends you will be provided with a graph on how you did. If you accidentally enter something other than the two options, there is a fail safe that will ask you to input something. This means that if you ever make a mistake when entering an answer, you will be able to try again until a valid answer is entered. All the questions are multiple choice and you will be able to enter 1, 2, 3, or 4. The fail safe also applies to this. If you are lucky you may spin the crown and you are able to choose the category your question will come from. You will be able to enter a number 1-6 and it will also contain a fail safe like the other two. Before each question is asked, there will be an input that asks for the user to enter anything to continue. Whatever is entered will not affect the game, it is just an intermediate. After each question the program will ask if you would like to continue and gives you the choice between Y and N. Whenever you feel that you no longer want to continue, you can enter N and the program will stop and give you your stats. If you didn't completely memorize the instructions don't worry! As stated early, instructions will be provided as you play.</p>
+    </li>
+
+    <li>
+        <h3>How It Works</h3>
+        <p>This program works by implementing the same input() method that was used in the madlibs assignment this semester. The questions were manually sorted in order for the other choice to seem more similar. When the user decides to spin, the program uses random.randint to randomly choose a category. (The categories are dictionaries that were made using a function that converted the text files into dictionaries with the keys as the questions and the value as the answer. These dictionaries will be organized to the 6 main categories and then ultimately bundled together inside the Master Dictionary.) After that, a sub category will be chosen using the same method. Then a list of the sub categories' answers and questions will be used to randomly pick a question and answer. The number in which the answer will be is also randomized using  random.randint. This way the answer won't always be the first choice or whatever it would be set to. When the user inserts a valid answer the program will return an output depending on the outcome. If it was correct, the person gains 100 score and 1 point to the specific category that they got the question correct in. If it was incorrect. The user will be made aware of the correct answer and move on without gaining anything. In both cases, the player's score will be printed along with the round number. A while loop is used to allow the function to continue running until the player decides to stop. The fail safes also uses a while loop that continues to ask the player until a valid answer is received. For the other choices that weren't the answer, in order to prevent a repeat of an answer choice that the player receives. To achieve this, a for loop was used to remove the actual answers from the list and the wrong choices were randomly selected using random.sample() so that it doesn’t repeat any of the other doubles in the list.</p>
+    </li>
+
+    <li>
+        <h3>Files</h3>
+
+        <ul>
+            <li>
+                <h4>Categories</h4>
+                <ul>
+                    <li>
+                        <h5>History</h5>
+                        <ul>
+                            <li>
+                                <p>History(Data).txt</p>
+                            </li>
+
+                            <li>
+                                <p>History(Event).txt</p>
+                            </li>
+
+                            <li>
+                                <p>History(Location).txt</p>
+                            </li>
+
+                            <li>
+                                <p>History(People).txt</p>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h5>Geography</h5>
+                        <ul>
+                            <li>
+                                <p>Geography(Place).txt</p>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h5>Science</h5>
+                        <ul>
+                            <li>
+                                <p>Science(Animal).txt</p>
+                            </li>
+
+                            <li>
+                                <p>Science(Body).txt</p>
+                            </li>
+
+                            <li>
+                                <p>Science(Element).txt</p>
+                            </li>
+
+                            <li>
+                                <p>Science(People).txt</p>
+                            </li>
+
+                            <li>
+                                <p>Science(Process).txt</p>
+                            </li>
+
+                            <li>
+                                <p>Science(Space).txt</p>
+                            </li>
+
+                            <li>
+                                <p>Science(Term).txt</p>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h5>Math</h5>
+                        <ul>
+                            <li>
+                                <p>Math(Integer).txt</p>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h5>Music</h5>
+                        <ul>
+                            <li>
+                                <p>Music(Album).txt</p>
+                            </li>
+
+                            <li>
+                                <p>Music(Group).txt</p>
+                            </li>
+
+                            <li>
+                                <p>Music(People).txt</p>
+                            </li>
+
+                            <li>
+                                <p>Music(Place).txt</p>
+                            </li>
+
+                            <li>
+                                <p>Music(Song).txt</p>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h5>Movie</h5>
+                        <ul>
+                            <li>
+                                <p>Movie(Movie).txt: Text file of movie questions with movie name answers for program to read.</p>
+                            </li>
+
+                            <li>
+                                <p>Movie(People).txt: Text file of movie questions with names of actors/actresses answers for program to read.</p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            
+            <li>
+                <p>HistoryQuestions.html: HTML file for history question list on project website.</p>
+            </li>
+
+            <li>
+                <p>GeographyQuestions.html: HTML file for geography question list on project website.</p>
+            </li>
+
+            <li>
+                <p>ScienceQuestions.html: HTML file for science question list on project website.</p>
+            </li>
+
+            <li>
+                <p>MathQuestions.html: HTML file for math question list on project website.</p>
+            </li>
+
+            <li>
+                <p>MusicQuestions.html: HTML file for music question list on project website.</p>
+            </li>
+
+            <li>
+                <p>MovieQuestions.html: HTML file for movie question list on project website.</p>
+            </li>
+
+            <li>
+                <p>home.html: HTML file for project homepage. Contains information on project.</p>
+            </li>
+
+            <li>
+                <p>questions.html: Questions homepage for all category lists.</p>
+            </li>
+
+            <li>
+                <p>download.html: Download page for Trivia Game</p>
+            </li>
+
+            <li>
+                <p>site.css: CSS file for modifying HTML files on website.</p>
+            </li>
+
+            <li>
+                <p>trivia.py: Python program that takes above text files and runs the game.</p>
+            </li>
+        </ul>
+    </li>
+
+
+    <li>
+        <h3>Resources</h3>
+        <ul>
+            <li>
+                <h4>Science Questions</h4>
+                <ul>
+                    <li>
+                        <a href='https://thoughtcatalog.com/samantha-newman/2020/04/science-trivia-questions/'>https://thoughtcatalog.com/samantha-newman/2020/04/science-trivia-questions/</a>
+                    </li>
+                    
+                    <li>
+                        <a href='https://thoughtcatalog.com/katee-fletcher/2021/02/animal-trivia-questions/'>https://thoughtcatalog.com/katee-fletcher/2021/02/animal-trivia-questions/></a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <h4>Math Questions</h4>
+                <ul>
+                    <li>
+                        <a href='https://thoughtcatalog.com/january-nelson/2021/05/math-trivia-questions/'>https://thoughtcatalog.com/january-nelson/2021/05/math-trivia-questions/</a>
+                    </li>
+
+                    <li>
+                        <a href='https://thoughtcatalog.com/katee-fletcher/2020/08/math-riddles/'>https://thoughtcatalog.com/katee-fletcher/2020/08/math-riddles/</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <h4>History Questions</h4>
+                <ul>
+                    <li>
+                        <a href='https://thoughtcatalog.com/katee-fletcher/2020/04/history-trivia-questions/'>https://thoughtcatalog.com/katee-fletcher/2020/04/history-trivia-questions/</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <h4>Geography Questions</h4>
+                <ul>
+                    <li>
+                        <a href='https://thoughtcatalog.com/january-nelson/2021/03/geography-trivia-questions/'>https://thoughtcatalog.com/january-nelson/2021/03/geography-trivia-questions/</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <h4>Music Questions</h4>
+                <ul>
+                    <li>
+                        <a href='https://thoughtcatalog.com/samantha-newman/2020/04/music-trivia-questions/'>https://thoughtcatalog.com/samantha-newman/2020/04/music-trivia-questions/</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <h4>Movie Questions</h4>
+                <ul>
+                    <li>
+                        <a href='https://thoughtcatalog.com/katee-fletcher/2020/04/movie-trivia-questions/'>https://thoughtcatalog.com/katee-fletcher/2020/04/movie-trivia-questions/</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+
+    <li>
+        <h3>Bugs, Errors and Things to Be Aware Of</h3>
+        <ul>
+            <li>
+                <p>Questions have a chance of showing up again. This can be a way of helping the user learn from past mistakes.</p>
+            </li>
+
+            <li>
+                <p>Some questions have the same answer. This could mean that two of the same answer can show up and only one will be correct.</p>
+            </li>
+        </ul>
+    </li>
+</ul>
