@@ -1,0 +1,31 @@
+h1 {
+    font-family: "Times New Roman", Times, serif;
+}
+
+.background {
+    position: relative;
+    text-align: left;
+}
+
+.title {
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    color: white;
+}
+
+.creators {
+    position: absolute;
+    top: 22%;
+    left: 45%;
+    font-size: 8px;
+    width: 150px;
+}
+
+body {
+    background-color: gold;
+}
+
+.home {
+    list-style-type: none;
+}
